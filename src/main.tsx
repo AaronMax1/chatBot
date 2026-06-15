@@ -255,7 +255,7 @@ function ProviderDialog({
             <input
               value={draft.baseUrl}
               onChange={(event) => setDraft({ ...draft, baseUrl: event.target.value })}
-              placeholder="https://api.openai.com/v1"
+              placeholder="/v1"
             />
           </label>
           <label>
@@ -266,7 +266,7 @@ function ProviderDialog({
               placeholder="gpt-5.5"
             />
           </label>
-          <p className="localHint">配置保存在当前浏览器 localStorage。静态页面会从浏览器直接请求该 Base URL，请确保接口允许跨域访问。</p>
+          <p className="localHint">配置保存在当前浏览器 localStorage。部署到 Render 时建议使用默认 /v1，由同源代理转发到模型接口。</p>
         </div>
         <div className="modalActions">
           <button className="textButton" onClick={onClose}>取消</button>

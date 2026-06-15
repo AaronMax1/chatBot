@@ -22,6 +22,18 @@ Base URL
 
 配置会保存到当前浏览器 `localStorage`，不会写入仓库。静态页面会从浏览器直接请求 `Base URL/chat/completions`，所以接口需要允许跨域访问。
 
+如果部署为 Render Web Service，推荐 Base URL 使用默认值：
+
+```text
+/v1
+```
+
+服务端会把 `/v1/*` 代理到 `UPSTREAM_BASE_URL`，默认是：
+
+```text
+http://130.94.65.11:8317/v1
+```
+
 ## 启动
 
 ```bash
@@ -39,6 +51,33 @@ http://localhost:5173/
 
 ```bash
 npm run build
+```
+
+## 本地验证 Render 形态
+
+```bash
+npm run dev:server
+```
+
+访问：
+
+```text
+http://localhost:10000/
+```
+
+## 部署到 Render
+
+创建 Web Service，使用：
+
+```text
+Build Command: npm install && npm run build
+Start Command: npm start
+```
+
+环境变量：
+
+```text
+UPSTREAM_BASE_URL=http://130.94.65.11:8317/v1
 ```
 
 ## 部署到 GitHub Pages

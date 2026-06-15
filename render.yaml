@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: assistant-chat-web
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: UPSTREAM_BASE_URL
+        value: http://130.94.65.11:8317/v1

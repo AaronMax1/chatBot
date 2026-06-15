@@ -3,6 +3,8 @@ import type { Assistant, AssistantPreset, Message, ProviderConfig, Topic } from 
 
 const KEY = 'assistant-chat-web.v1'
 const PROVIDER_KEY = 'assistant-chat-web.provider.v1'
+const DEFAULT_BASE_URL = '/v1'
+const DEFAULT_MODEL = 'gpt-5.5'
 
 type StoredState = {
   assistants: Assistant[]
@@ -139,21 +141,21 @@ export function loadProviderConfig(): ProviderConfig {
     if (!raw) {
       return {
         apiKey: '',
-        baseUrl: 'https://api.openai.com/v1',
-        model: 'gpt-5.5',
+        baseUrl: DEFAULT_BASE_URL,
+        model: DEFAULT_MODEL,
       }
     }
     const parsed = JSON.parse(raw) as Partial<ProviderConfig>
     return {
       apiKey: typeof parsed.apiKey === 'string' ? parsed.apiKey : '',
-      baseUrl: typeof parsed.baseUrl === 'string' && parsed.baseUrl.trim() ? parsed.baseUrl : 'https://api.openai.com/v1',
-      model: typeof parsed.model === 'string' && parsed.model.trim() ? parsed.model : 'gpt-5.5',
+      baseUrl: typeof parsed.baseUrl === 'string' && parsed.baseUrl.trim() ? parsed.baseUrl : DEFAULT_BASE_URL,
+      model: typeof parsed.model === 'string' && parsed.model.trim() ? parsed.model : DEFAULT_MODEL,
     }
   } catch {
     return {
       apiKey: '',
-      baseUrl: 'https://api.openai.com/v1',
-      model: 'gpt-5.5',
+      baseUrl: DEFAULT_BASE_URL,
+      model: DEFAULT_MODEL,
     }
   }
 }

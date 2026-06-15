@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "dev:client": "vite --host 0.0.0.0",
+    "dev:server": "npm run build && node server/index.js",
+    "start": "node server/index.js",
     "build": "tsc && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "deploy": "npm run build && gh-pages -d dist"
