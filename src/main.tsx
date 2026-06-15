@@ -666,7 +666,10 @@ function App() {
       <header className="mobileTopbar">
         <button className="iconButton" onClick={() => setSidebarOpen(true)} aria-label="打开菜单"><Menu size={18} /></button>
         <strong>{activeAssistant?.name || 'Assistants'}</strong>
-        <button className="iconButton" onClick={() => setPresetDialogOpen(true)} aria-label="添加角色"><Sparkles size={18} /></button>
+        <div className="mobileTopbarActions">
+          <button className="iconButton" onClick={() => createTopic()} aria-label="新建话题"><MessageSquarePlus size={18} /></button>
+          <button className="iconButton" onClick={() => setPresetDialogOpen(true)} aria-label="添加角色"><Sparkles size={18} /></button>
+        </div>
       </header>
 
       <aside className={`assistantPane ${sidebarOpen ? 'open' : ''}`}>
@@ -675,8 +678,10 @@ function App() {
             <p className="eyebrow">Assistants</p>
             <h1>聊天助手</h1>
           </div>
-          <button className="iconButton mobileOnly" onClick={() => setSidebarOpen(false)} aria-label="关闭"><X size={18} /></button>
-          <button className="iconButton desktopOnly" onClick={() => setPresetDialogOpen(true)} aria-label="添加角色"><Plus size={18} /></button>
+          <div className="paneHeaderActions">
+            <button className="iconButton" onClick={() => setPresetDialogOpen(true)} aria-label="添加角色"><Plus size={18} /></button>
+            <button className="iconButton mobileOnly" onClick={() => setSidebarOpen(false)} aria-label="关闭"><X size={18} /></button>
+          </div>
         </div>
         <div className="searchBox">
           <Search size={16} />

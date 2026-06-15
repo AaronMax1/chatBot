@@ -70,9 +70,25 @@ textarea:disabled {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   border-bottom: 1px solid var(--line);
   background: var(--panel);
   padding: 0 12px;
+}
+
+.mobileTopbar strong {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mobileTopbarActions,
+.paneHeaderActions {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
 }
 
 .assistantPane,
